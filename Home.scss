@@ -1,0 +1,1205 @@
+$white: #ffffff;
+$beige: #f7dfc1;
+$black: #2d2d2d;
+$green: #658036;
+$orange: #dc602e;
+$lightorange: #fe6b30;
+$transparent: rgba(255, 255, 255, 0);
+$dark_paper: #e3da949e;
+$post_it: #fff189;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  max-width: 100vw;
+  min-height: 100%;
+  position: relative;
+  z-index: -1;
+  max-width: 100%;
+
+  
+}
+
+// Scrollbar edit
+
+/* Works on Firefox */
+* {
+  scrollbar-color: $orange #f3f3f3;
+}
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $orange;
+  border-radius: 9px;
+}
+
+
+#home_cont {
+  position: relative;
+  z-index: -3;
+}
+
+//*************************  UTILITY  *******************************
+.show_element {
+  animation: modal_appear 0.5s ease-in;
+  -webkit-animation: modal_appear 0.5s ease-in;
+  
+  pointer-events: initial;
+}
+.hide_element {
+  animation: modal_disappear 0.75s ease-in forwards;
+  pointer-events: none;
+}
+.hidden_element {
+  display: none!important;
+  pointer-events: none;
+}
+.stop_scroll {
+  overflow: hidden;
+}
+
+.top_half_screen{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bottom_half_screen{
+    bottom: -50%;
+    transform: translateY(50%);
+}
+
+//*************************  NAV BAR  *******************************
+
+#navigation_sticky_box {
+  height: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  position: absolute;
+  width: 100%;
+  height: 7vh;
+  font-size: 1.4rem;
+  height: fit-content;
+
+  .logo_title {
+    grid-area: 1 / 1 / 2 / 4;
+    color: $white;
+    font-family: "Yeseva One", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+      width: 4rem;
+      margin-right: 1rem;
+    }
+
+    #home{
+        a{
+            text-decoration: none;
+            color: $white;
+          }
+        
+          a:visited, a:active{
+            text-decoration: none;
+              color: $white;
+          }
+    }
+    
+  }
+  
+
+  .nav_links {
+    grid-area: 1 / 4 / 2 / 8;
+    color: $black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #nav_dropdown{
+        --size: "big";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+    }
+    
+    #nav_menu_btn{
+        display: none;
+
+        &:active, &:visited{
+          color: $black;
+        }
+
+        &:hover{
+            color: $lightorange!important;
+            font-weight: 900;
+          }
+    }
+
+    a {
+      padding: 0.5rem;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      width: 20%;
+      text-decoration-color: $black;
+      
+
+      &:active, &:visited, &:link{
+        
+        color: $black!important;
+      }
+
+      &:hover{
+        color: $lightorange;
+        cursor: pointer;
+        font-weight: 900;
+      }
+    }
+    .was_clicked {
+      color: $lightorange !important;
+      font-weight: 900;
+    }
+  }
+
+  .change_title_background {
+    background: url("img/canvas-green.jpg");
+    background-size: cover;
+  }
+  .change_navlinks_background {
+    background-color: $beige;
+  }
+  
+}
+.over {
+    -webkit-box-shadow: 0 4px 2px -2px $black;
+    box-shadow: 0 4px 4px -3px $black;
+  }
+
+//*************************  LANDING  *******************************
+.landing {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+  height: 105vh;
+  background-color: transparent;
+
+  
+
+  .landing_img {
+    grid-area: 1 / 1 / 2 / 4;
+    background-image: url("img/canvas-green.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    z-index: -1;
+
+    div {
+      background: url(img/CM-4.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      width: 101%;
+      height: 100%;
+      min-width: 520px;
+    }
+  }
+
+  .landing_name {
+    grid-area: 1 / 4 / 2 / 8;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    background-color: $beige;
+
+    &::after{
+      content: '';
+      background: url('img/CM_circle.png');
+      width: 25%;
+      min-width: 6.5rem;
+      height: 25%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      z-index: 100;
+      top: 7%;
+      display: none;
+    }
+
+    h1 {
+      font-family: "Yeseva One", cursive;
+      text-align: center;
+      font-size: 6rem;
+      line-height: 6rem;
+      color: $green;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: $black;
+      line-height: 2rem;
+      font-weight: 700;
+    }
+
+    #action_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      background-color: $orange;
+      color: $white;
+      border-radius: 50px;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-top: 5rem;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $lightorange;
+      }
+
+      span {
+        padding: 1.5rem;
+      }
+    }
+  }
+}
+
+//*************************  CHI SONO  *******************************
+#chi_sono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  padding: 5rem 0;
+
+  &::after {
+    background-image: url("img/textbook.jpeg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: "Yeseva One", cursive;
+    font-size: 4rem;
+    color: $orange;
+    margin: 0;
+  }
+
+  main {
+    display: flex;
+    width: 80%;
+    height: fit-content;
+    padding-top: 2rem;
+    z-index: 2;
+    color: $black;
+
+    article {
+      width: 55%;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        width: 90%;
+        height: fit-content;
+        font-size: 1.1rem;
+        line-height: 2.5rem;
+      }
+    }
+    #images_cont {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      width: 45%;
+      height: 100%;
+      position: relative;
+      margin-top: -10%;
+
+      img {
+        max-height: 50rem;
+        max-width: 100%;
+      }
+    }
+  }
+  #disegno_outline {
+    position: absolute;
+    height: 25rem;
+    bottom: -2rem;
+    left: -3rem;
+    z-index: 1;
+    opacity: 0.8;
+  }
+}
+
+//*************************  SERVIZI *******************************
+
+#servizi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: $beige;
+  padding-bottom: 8rem;
+  position: relative;
+  z-index: -2;
+
+  h1 {
+    text-align: center;
+    font-family: "Yeseva One", cursive;
+    font-size: 4rem;
+    color: $green;
+    margin: 5rem 0;
+  }
+
+  #service_cont {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 100%!important;
+  }
+
+  .service_box {
+    width: 30%;
+    min-width: 330px;
+    height: auto;
+    background-color: $post_it;
+    font-size: 1.1rem;
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.25);
+    position: relative;
+    margin: 0;
+    border-radius: 2px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      width: 40%;
+      height: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+      z-index: -1;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &::before {
+      left: 15px;
+      transform: skew(-5deg) rotate(-5deg);
+    }
+
+    &::after {
+      right: 15px;
+      transform: skew(5deg) rotate(5deg);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    &:hover::before {
+      left: 5px;
+    }
+
+    &:hover::after {
+      right: 5px;
+    }
+
+    .box_decoration {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 0;
+        background: linear-gradient(
+            $transparent,
+            50%,
+            $dark_paper,
+            51%,
+            $transparent
+          ),
+          linear-gradient(
+            to right,
+            $transparent,
+            50%,
+            $dark_paper,
+            51%,
+            $transparent
+          );
+      }
+    }
+
+    .box_content {
+      max-width: 100%;
+      max-height: 100%;
+      position: relative;
+      top: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      padding: 2.3rem;
+      margin: 0;
+
+      .service_title {
+        color: $orange;
+        font-weight: 700;
+        text-align: center;
+        font-size: 1.4rem;
+        position: relative;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        width: 100%;
+
+        &.service_left::after {
+          content: "";
+          background: url("img/clip-L.png");
+        }
+        &.service_right::after {
+          content: "";
+          background: url("img/clip-R.png");
+        }
+
+        &.service_left::after,
+        &.service_right::after {
+          width: 2rem;
+          height: 3rem;
+          background-size: 2rem 3rem;
+          position: absolute;
+          display: block;
+          top: -90%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      .service_desc {
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      ul {
+        width: 100%;
+        padding: 5% 2% 5% 5%;
+        margin: -1rem 0 0 0;
+
+        li {
+          margin: 0.4rem 0;
+        }
+      }
+    }
+  }
+}
+
+//*************************  CONTATTI *******************************
+#contatti {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-image: url("img/canvas-green.jpg");
+  background-size: cover;
+
+  h1 {
+    text-align: center;
+    font-family: "Yeseva One", cursive;
+    font-size: 4rem;
+    color: $white;
+    margin-bottom: 3rem;
+  }
+
+  #info_box {
+    display: flex;
+    width: 75vw;
+    margin-bottom: 6rem;
+    background-color: $beige;
+    border-radius: 30px;
+    color: $black;
+    font-size: 1.2rem;
+
+    #mappa {
+      width: 40%;
+      min-width: 80px;
+
+      img {
+        width: 100%;
+        min-width: 80px;
+        object-fit: cover;
+        min-height: 100%;
+        display: block;
+        border-radius: 30px 0 0 30px;
+      }
+    }
+
+    #info_contatti {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 1rem 1rem 1rem 3rem;
+    }
+
+    span {
+      font-weight: 700;
+      padding-right: 0.5rem;
+    }
+
+    ul {
+      margin-top: -1rem;
+
+      li {
+        padding: 0.5rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 700;
+      color: $orange;
+
+      &:hover{
+          color: $lightorange;
+      }
+    }
+  }
+}
+
+//*************************  CURRICULUM *******************************
+
+#curriculum_cont {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 110%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  z-index: 13;
+  max-width: 100%;
+
+  #curriculum_box {
+    background: url("img/canvas-green.jpg");
+    background-size: cover;
+    height: 70vh;
+    padding: 5rem;
+    width: 80%;
+    min-width: 40%;
+    display: grid;
+    place-items: center;
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+
+    #close_curriculum {
+      position: absolute;
+      top: -2rem;
+      right: 0rem;
+      background: $orange;
+      width: 2.5rem;
+      padding: 1rem;
+      border-radius: 50px;
+      display: grid;
+      place-items: center;
+
+      &:hover {
+        background-color: $lightorange;
+      }
+    }
+
+    #curriculum {
+      background: url("img/paper\ texture\ white.jpg");
+      max-width: 100%;
+      max-height: 90%;
+      padding: 3rem 6rem;
+      overflow-y: scroll;
+
+      h1 {
+        font-family: "Yeseva One", cursive;
+        font-size: 4rem;
+        color: $green;
+        padding-bottom: 1rem;
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        color: $orange;
+      }
+
+      ul {
+        list-style: none;
+        padding-bottom: 2rem;
+
+        li {
+          padding: 0.8rem 0;
+          font-size: 1rem;
+
+          &::before {
+            content: "\2022";
+            color: $black;
+            font-weight: bold;
+            display: inline-block;
+            width: 2.3rem;
+            margin-left: -2.3rem;
+            font-size: 2rem;
+            transform: translateY(0.3rem);
+          }
+        }
+      }
+    }
+  }
+}
+
+//*************************  Tariffe *******************************
+
+#tariffe_cont {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 110%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  z-index: 13;
+  max-width: 100%;
+
+
+  #tariffe_box {
+    background: url("img/canvas-green.jpg");
+    background-size: cover;
+    height: 70vh;
+    padding: 5rem;
+    width: 80%;
+    min-width: 40%;
+    display: grid;
+    place-items: center;
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+
+    #close_tariffe {
+      position: absolute;
+      top: -2rem;
+      right: 0rem;
+      background: $orange;
+      width: 2.5rem;
+      padding: 1rem;
+      border-radius: 50px;
+      display: grid;
+      place-items: center;
+
+      &:hover {
+        background-color: $lightorange;
+      }
+    }
+
+    #tariffe {
+      background: url("img/paper\ texture\ white.jpg");
+      max-width: 100%;
+      height: 95%;
+      padding: 3rem 6rem;
+      overflow-y: scroll;
+
+      h1 {
+        font-family: "Yeseva One", cursive;
+        font-size: 4rem;
+        color: $green;
+        padding-bottom: 0rem;
+        margin: 0;
+      }
+
+      table {
+        width: 100%;
+        height: auto;
+        border-spacing: 1rem 2rem;
+
+        td {
+          padding-right: 4rem;
+          font-size: 1.2rem;
+        }
+
+        & td:nth-child(2) {
+          font-weight: 700;
+          font-size: 1.3rem;
+        }
+      }
+
+      p {
+        color: $orange;
+        font-weight: 700;
+
+        u {
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+@keyframes modal_appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+@-webkit-keyframes modal_appear {
+    0% {
+        display: flex;
+        -webkit-opacity: 0;
+        -webkit-transform: translateY(0%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+        -webkit-opacity: 100%;
+    }
+  }
+
+@-webkit-keyframes modal_disappear {
+  0% {
+    -webkit-opacity: 100%;
+  }
+  99% {
+    -webkit-opacity: 0;
+    -webkit-transform: translateY(0%);
+  }
+  100%{
+    -webkit-height: 1px;
+  }
+}
+
+
+@keyframes modal_disappear {
+    0% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10%);
+      display: none!important;
+    }
+  }
+  
+
+
+ 
+
+@-webkit-keyframes dropdown_appear {
+    0% {
+        -webkit-opacity: 0;
+        -webkit-top: -140%;
+    }
+    100% {
+        -webkit-top: 100%;
+        -webkit-opacity: 100%;
+    }
+  }
+  @keyframes dropdown_appear {
+    0% {
+      opacity: 0;
+      top: -140%;
+    }
+    100% {
+      top: 100%;
+      opacity: 100%;
+    }
+  }
+
+
+  
+  @-webkit-keyframes dropdown_disappear {
+    0% {
+        -webkit-opacity: 100%;
+        -webkit-top: 100%;
+    }
+    100% {
+        -webkit-opacity: 0;
+        -webkit-top: -140%;
+    }
+  }
+  @keyframes dropdown_disappear {
+    0% {
+      opacity: 100%;
+      top: 100%;
+    }
+    100% {
+      opacity: 0;
+      top: -140%;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------    media queries ----------------------------------
+
+@media only screen and (max-width: 940px) {
+
+
+    nav{
+
+        height: fit-content;
+        background: url(img/canvas-green.jpg);
+        background-size: cover;
+
+
+        .logo_title, .nav_links{
+            background: transparent;
+        }
+        .logo_title{
+            grid-area: 1 / 1 / 2 / 6; 
+            transform: scale(0.85);
+            height: 100%;
+            margin-right: auto;
+        }
+        .nav_links{
+            grid-area: 1 / 6 / 2 / 8;
+            color: $white;
+            position: relative;
+
+            #nav_dropdown{
+                --size: 1;
+                position: absolute;
+                right: 0;
+                background: url("img/textbook.jpeg");
+                background-position: 0%;
+                background-size: cover;
+                color: $black;
+                height: fit-content;
+                padding: 1rem;
+                z-index: -1; 
+                display: flex;
+                flex-direction: column;   
+                justify-content: center;
+                align-items: unset;
+                padding: 0;
+                width: 150%;
+
+                a{
+                    width: auto;
+                    padding: 1rem ;
+                    border: 0.5px solid $black;
+                    margin: 0;
+                    color: $black;
+                    font-size: 1.6rem;
+                }
+            }
+            .initial{
+                top: -140%;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .dropdown_up{
+                animation: dropdown_disappear 0.5s ease-in-out forwards;
+                -webkit-animation: dropdown_disappear 0.5s ease-in-out forwards;
+                pointer-events: none;
+            }
+            .dropdown_down{
+                animation: dropdown_appear 0.5s ease-in-out forwards;
+                -webkit-animation: dropdown_appear 0.5s ease-in-out forwards;
+                pointer-events: default;
+            }
+
+            #nav_menu_btn{
+                display: block;
+                margin-left: auto;
+                padding-right: 1rem;
+            }
+            a {
+
+                &:visited,
+                &:active {
+                  color: $white;
+                }
+              }
+        }
+    }
+    
+    .landing{
+        display: flex;
+        justify-content: center;
+    }
+    .landing_name{ 
+        text-emphasis: none;
+    }
+    .landing_img{
+        display: none!important;
+  } 
+
+  #chi_sono{
+    &::after {
+        background-size: contain!important;
+    }
+    main{
+        flex-direction: column!important;
+        align-items: center;
+
+        article{
+            width: 100%!important;
+        }
+    }
+    #images_cont{
+        margin-top: 0!important;
+        align-items: center!important;
+    }
+  }
+
+  #contatti{
+      #info_box{
+          
+          flex-direction: column;
+          margin-top: 1rem;
+          max-width: 600px!important;
+        
+          #mappa{
+              width: 100%;             
+          }
+
+          img{
+              width: 100%;
+              border-radius: 30px 30px 0 0!important;
+              min-height: 0!important;
+          }
+
+          #info_contatti{
+              margin-top: -4rem;
+              background-color: $beige;
+              border-radius: 0 0 30px 30px!important;
+          }
+      }
+  }
+
+  
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px){
+
+   .landing{
+       height: fit-content!important;
+      
+
+    .landing_name{
+        padding: 25vh 0 15vh 0!important;
+        max-height: 100%!important;
+        height: fit-content;
+
+        &::after{
+            display: flex!important;
+        }
+
+       
+        #action_btn{
+            width: 80%!important;
+            text-align: center;
+            margin-top: 3rem!important;    
+        }
+    }
+   }
+
+   #curriculum_cont, #tariffe_cont{
+
+    max-width: 100%!important;
+    padding: 0!important;
+
+
+   
+   #curriculum_box, #tariffe_box {
+
+        width: 100%!important;
+        padding: 6rem 1rem!important;
+        height: 70vh;
+    
+    }
+   }
+#curriculum, #tariffe{
+    max-width: 90%!important;
+    padding: 3rem 1rem!important;
+}
+   
+}
+
+
+@media only screen and (max-width: 509px){
+
+    
+      *::-webkit-scrollbar {
+        width: 0rem!important;
+      }
+
+      #home{
+          font-size: 5vw;
+        
+      }
+
+    .landing_name{
+        h1{
+            font-size: 20vw!important;
+            line-height: 18vw!important;
+        }
+        h2{
+            font-size: 5vw!important;
+            line-height: 8vw!important;
+            margin-top: 0!important;
+        }
+    }
+    #action_btn{
+        span{
+            padding: 0.5rem 1.5rem!important;
+        }            
+    }
+
+    #contatti{
+        #info_box{
+            width: 90%!important;
+        }
+        #info_contatti{
+            padding: 1rem!important;
+            font-size: 5vw!important;
+
+        }
+
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+    }
+
+    #curriculum_box, #tariffe_box {
+        padding-top: 9rem!important;
+        padding-bottom: 3rem!important;
+        padding-right: 3rem!important;
+        padding-left: 3rem!important;
+        
+        min-width: 0!important;
+        width: 100%!important;
+        max-width: 100%!important;
+        height: 100vh!important;
+  
+        #curriculum, #tariffe{
+            padding: 1rem!important;
+            max-height: 85%!important;
+            
+            
+            h1{
+                font-size: 10vw!important;
+            }
+        }
+        #tariffe{
+            
+            overflow-x: hidden!important;
+
+            #table{
+                max-width: 100%!important;
+                
+            }
+        }
+
+
+        #close_curriculum, #close_tariffe{
+            top: 12%!important;
+            width: 2rem!important;
+        }
+    }    
+}
+
+
+@media only screen and (max-width: 469px){
+    #action_btn{
+
+        span{
+            padding: 0.5rem 1.5rem!important;
+        }            
+    }
+}
+
+
+
